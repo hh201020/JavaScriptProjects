@@ -18,6 +18,8 @@
     "css-loader": "^0.26.2",
     "jshint": "^2.8.0",
     "jshint-loader": "^0.8.3",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
     "node-libs-browser": "^0.5.3",
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.2",
