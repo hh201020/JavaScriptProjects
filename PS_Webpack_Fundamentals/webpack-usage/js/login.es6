@@ -1,7 +1,8 @@
 let login = (username, password) => {
 	if(username !== 'admin'  || password !== 'radical') {
-		console.log('no, incorrect login');
+		console.log('incorrect login');
 	}
 };
 
-login('admin', 'idunno');
+//login('admin', 'idunno');
+export {login}
