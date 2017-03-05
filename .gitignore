@@ -1,0 +1,7 @@
+node_modules
+/typings
+*.map
+.DS_Store
+/.git
+/npm*
+
