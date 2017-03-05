@@ -20,9 +20,9 @@ module.exports = {
 				loader: "style-loader!css-loader"
 			},
 			{
-				test: /\.(png|jpg)$/, 
+				test: /\.(png|jpg|ttf|eot)$/, 
 				exclude: /node_modules/,
-				loader: 'url-loader?limit=100000'
+				loader: 'url-loader?limit=10000'
 			}
 		]
 	},
