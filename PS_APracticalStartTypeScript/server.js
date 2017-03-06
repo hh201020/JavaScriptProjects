@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var routes = require('./routes/index');
+// var routes = require('./routes/index');
 
 var app = express();
 
@@ -10,7 +10,10 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 
-app.use('/', routes);
+// app.use('/', routes);
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 // Only load this middleware in dev mode (important).
 if (app.get('env') === 'development') {
@@ -32,11 +35,11 @@ if (app.get('env') === 'development') {
 }
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 var server = app.listen(8000, function () {
   console.log('listening on port 8000');

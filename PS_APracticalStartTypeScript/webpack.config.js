@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-	context: path.resolve('public/js'),
+	context: path.resolve('js'),
 	entry: "./app",
 	output: {
 		path: path.resolve('build/'),
