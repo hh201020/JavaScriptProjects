@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-	context: path.resolve('js'),
+	context: path.resolve('public/js'),
 	entry: "./app",
 	output: {
 		path: path.resolve('build/'),
@@ -18,11 +18,6 @@ module.exports = {
 				test: /\.css$/,
 				exclude: /node_modules/,
 				loader: "style-loader!css-loader"
-			},
-			{
-				test: /\.(png|jpg|ttf|eot)$/, 
-				exclude: /node_modules/,
-				loader: 'url-loader?limit=10000'
 			}
 		]
 	},
