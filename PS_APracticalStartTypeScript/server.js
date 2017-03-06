@@ -11,28 +11,28 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 
 // app.use('/', routes);
+app.use(express.static(__dirname + '/'));
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 // Only load this middleware in dev mode (important).
-if (app.get('env') === 'development') {
-  var webpackMiddleware = require("webpack-dev-middleware");
-  var webpack = require('webpack');
+// if (app.get('env') === 'development') {
+//   var webpackMiddleware = require("webpack-dev-middleware");
+//   var webpack = require('webpack');
 
-  var config = require('./webpack.config');
+//   var config = require('./webpack.config');
 
-  app.use(webpackMiddleware(webpack(config), {    // middleware means to access resources here: build, which is the same path defined in webpack.config.js
-    publicPath: "/build",
+//   app.use(webpackMiddleware(webpack(config), {    // middleware means to access resources here: build, which is the same path defined in webpack.config.js
+//     publicPath: "/build",
 
-    headers: { "X-Custom-Webpack-Header": "yes" },
+//     headers: { "X-Custom-Webpack-Header": "yes" },
 
-    stats: {
-      colors: true
-    }
-  }));
-
-}
+//     stats: {
+//       colors: true
+//     }
+//   }));
+// }
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
