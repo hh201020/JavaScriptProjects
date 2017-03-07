@@ -1,5 +1,6 @@
 import * as Coin from "./coin"
 import { Product, Initial as Init } from "./product"
+import getVendingProduct from "./productFactory"
 
 enum VendingMachineSize {
     small = 6,
@@ -25,7 +26,7 @@ class vendingMachine {
         this.cells([]);
 
         for (let index = 0; index < givenSize; index++) {
-            let product = productFactory.GetProduct();
+            let product = getVendingProduct();
             this.cells.push(new Cell(product));            
         };
     }
