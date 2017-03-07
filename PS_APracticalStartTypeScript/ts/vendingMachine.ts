@@ -1,4 +1,4 @@
-import * as Coins from "./Coin"
+import * as Coins from "./coin"
 import { Product, Initial as Init } from "./product"
 import getVendingProduct from "./productFactory"
 
@@ -18,7 +18,7 @@ class Cell {
 export class VendingMachine {
     private paid = ko.observable(0);
     selectedCell = ko.observable(new Cell(new Init()))
-    acceptedCoinss: Array<Coins.Coin> = [new Coins.Dime(), new Coins.Quarter(), new Coins.Half(), new Coins.Dollar()]
+    acceptedCoins: Array<Coins.Coin> = [new Coins.Dime(), new Coins.Quarter(), new Coins.Half(), new Coins.Dollar()]
     cells = ko.observableArray([])
     canPay = ko.pureComputed(() => this.paid() - this.selectedCell().product.price >= 0)
 
@@ -36,9 +36,9 @@ export class VendingMachine {
         this.selectedCell(cell);
     }
 
-    acceptCoins = (Coins: Coins.Quarter): void => {
+    acceptCoin = (coin: Coins.Quarter): void => {
         let oldTotal = this.paid();
-        this.paid(oldTotal + Coins.value);
+        this.paid(oldTotal + coin.value);
     }
         
     pay = (): void => {               
