@@ -14,10 +14,9 @@
                     Paid: $
                     <span id="total" data-bind="text: paid"></span>
                     <br/><br/>
-                    <button class="btn btn-primary" 
-                        onclick="machine.acceptCoin(new Quarter())">
-                        Insert quarter
-                    </button>
+                <div data-bind="foreach: acceptedCoins">
+                    <img data-bind="attr: { src: getImageUrl(), alt: value }, click: $parent.acceptCoin"/>
+                </div>   
                 </h4>
             </div>
         </div>
