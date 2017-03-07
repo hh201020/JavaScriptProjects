@@ -1,6 +1,5 @@
-/// <reference path="./coin.ts" />
-/// <reference path="product.ts" />
-/// <reference path="productFactory.ts" />
+import * as Coin from "./coin"
+import { Product, Initial as Init } from "./product"
 
 enum VendingMachineSize {
     small = 6,
@@ -17,8 +16,8 @@ class Cell {
 
 class vendingMachine {
     private paid = ko.observable(0);
-    selectedCell = ko.observable(new Cell(new Initial()))
-    acceptedCoins: Coin[] = [new Dime(), new Quarter(), new Half(), new Dollar()]
+    selectedCell = ko.observable(new Cell(new Init()))
+    acceptedCoins: Coin.Coin[] = [new Coin.Dime(), new Coin.Quarter(), new Coin.Half(), new Coin.Dollar()]
     cells = ko.observableArray([])
     canPay = ko.pureComputed(() => this.paid() - this.selectedCell().product.price >= 0)
 
@@ -36,7 +35,7 @@ class vendingMachine {
         this.selectedCell(cell);
     }
 
-    acceptCoin = (coin: Quarter): void => {
+    acceptCoin = (coin: Coin.Quarter): void => {
         let oldTotal = this.paid();
         this.paid(oldTotal + coin.value);
     }
