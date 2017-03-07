@@ -58,15 +58,15 @@ var Dollar = (function (_super) {
 var vendingMachine = (function () {
     function vendingMachine() {
         var _this = this;
-        this.paid = 0;
+        this.paid = ko.observable(0);
         this.acceptCoin = function (coin) {
-            _this.paid = _this.paid + coin.value;
-            var element = document.getElementById("total");
-            element.innerHTML = _this.paid.toString();
+            var oldTotal = _this.paid();
+            _this.paid(oldTotal + coin.value);
         };
     }
     return vendingMachine;
 }());
 /// <reference path="vendingMachine.ts" />
 var machine = new vendingMachine();
+ko.applyBindings(machine);
 //# sourceMappingURL=app.js.map
