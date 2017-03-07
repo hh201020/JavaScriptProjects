@@ -2,7 +2,10 @@
     "compilerOptions": {
         "sourceMap": true,
         "target": "es5",
-        "outFile": "./js/app.js"
+       // "outFile": "js/app.js",
+        "outDir": "js",
+        "experimentalDecorators": true,
+        "module": "amd"
     },
     "exclude": [
         "node_modules"

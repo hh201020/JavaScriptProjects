@@ -2,7 +2,7 @@ import * as Coin from "./coin"
 import { Product, Initial as Init } from "./product"
 import getVendingProduct from "./productFactory"
 
-enum VendingMachineSize {
+export enum VendingMachineSize {
     small = 6,
     medium = 9,
     large = 12
@@ -15,7 +15,7 @@ class Cell {
     sold = ko.observable(false)
 }
 
-class vendingMachine {
+export class VendingMachine {
     private paid = ko.observable(0);
     selectedCell = ko.observable(new Cell(new Init()))
     acceptedCoins: Coin.Coin[] = [new Coin.Dime(), new Coin.Quarter(), new Coin.Half(), new Coin.Dollar()]
